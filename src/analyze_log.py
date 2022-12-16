@@ -16,9 +16,11 @@ def analyze_log(path_to_file: str):
         raise FileNotFoundError(f'Arquivo inexistente: {path_to_file}')
 
     most_ordered = track_orders.get_most_ordered_dish_per_customer('maria')
-    ordered_times = track_orders.get_quantity_ordered_per_customer('arnaldo', 'hamburguer')
+    ordered_times = track_orders.get_quantity_ordered_per_customer(
+        'arnaldo', 'hamburguer'
+    )
     never_ordered = track_orders.get_never_ordered_per_customer('joao')
-    visited_days = track_orders.get_days_never_visited_per_customer('joao')   
+    visited_days = track_orders.get_days_never_visited_per_customer('joao')
 
     file_to_write = 'data/mkt_campaign.txt'
     with open(file_to_write, 'a') as log_file:
