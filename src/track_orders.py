@@ -82,3 +82,12 @@ class TrackOrders:
                 day_volume = open_days_counter[order['day']]
                 least_busy_day = order['day']
         return least_busy_day
+
+    def get_quantity_ordered_per_customer(self, customer, dish):
+        quantity_ordered = 0
+
+        for order in self._data:
+            if order['customer'] == customer and order['dish'] == dish:
+                quantity_ordered += 1
+
+        return quantity_ordered
